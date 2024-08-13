@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    User Register Page
+{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto my-5 p-5 w-50 row">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="col-12 my-3">
+            {{form.username}}
+        </div>
+        <div class="col-12 my-3">
+            {{form.email}}
+        </div>
+        <div class="col-12 my-3">
+            {{form.password1}}
+        </div>
+        <div class="col-12 my-3">
+            {{form.password2}}
+        </div>
+        <div class="col-12 my-3 ">
+            <button type="submit" class="btn btn-primary w-25 mx-auto rounded-3">Submit</button>
+        </div>
+    </form>
+
+    {% if form.errors %}
+    {{form.errors}}
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        var form_field = document.getElementsByTagName('input')
+        form_field[1].placeholder = "Username "
+        form_field[2].placeholder = "Email "
+        form_field[3].placeholder = "Password "
+        form_field[4].placeholder = "Re-Enter Password "
+
+        for(let i in form_field){
+            form_field[i].className += "form-control"
+        }
+    </script>
+{% endblock %}

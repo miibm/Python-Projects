@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    User Home Page
+{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto my-5 p-5 w-50 row">
+    {{request.user}} you logged on
+    <a href="{% url 'logoutpage'%}">Logout {{request.user}}</a>
+</div>
+
+{% endblock %}
